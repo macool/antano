@@ -1,4 +1,4 @@
-.col-xs-4
+.col-xs-4 id="photo-#{photo.id}"
   .thumbnail
     = image_tag photo.image_url(:thumb)
     .caption
@@ -9,5 +9,5 @@
       - elsif photo.allowed?
         span.label.label-success allowed
       - else
-        span.label.label-default not allowed
+        = link_to "not allowed", allow_admin_photo_path(photo), class: "label label-default", method: :post, remote: true
       = link_to "", edit_admin_photo_path(photo), class: "glyphicon glyphicon-edit"

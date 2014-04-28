@@ -10,13 +10,11 @@ module Admin
         render :new
       end
     end
+    alias_method :update, :create
 
-    def update
-      if photo.update(photo_params)
-        redirect_to action: :index
-      else
-        render :edit
-      end
+    def allow
+      self.photo = Photo.find params[:id]
+      photo.update allowed: true
     end
 
     private

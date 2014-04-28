@@ -49,6 +49,10 @@ Antano::Application.routes.draw do
 
   # Example resource route within a namespace:
   namespace :admin do
-    resources :photos
+    resources :photos do
+      member do
+        post :allow
+      end
+    end
   end
 end
