@@ -1,6 +1,6 @@
 module Admin
   class PhotosController < AdminController
-    expose(:photos)
+    expose(:photos) { Photo.sorted }
     expose(:photo, attributes: :photo_params)
 
     def create
@@ -22,7 +22,7 @@ module Admin
     private
 
     def photo_params
-      params.require(:photo).permit(:image, :image_cache, :title, :description)
+      params.require(:photo).permit(:image, :image_cache, :title, :description, :allowed, :position)
     end
   end
 end
