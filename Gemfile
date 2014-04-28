@@ -56,6 +56,7 @@ gem "decent_exposure"
 gem "carrierwave"
 gem "cloudinary"
 gem "simple_form"
+gem "twitter", "4.8.0"
 
 group :test, :development do
   gem "rspec-rails"
