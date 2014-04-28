@@ -50,6 +50,8 @@ gem "slim-rails"
 gem "kaminari"
 gem "foreman"
 gem "dotenv"
+gem "omniauth-twitter"
+gem "omniauth-facebook"
 
 group :test, :development do
   gem "rspec-rails"
@@ -57,6 +59,7 @@ group :test, :development do
   gem "capybara"
   gem "guard-rspec"
   gem "terminal-notifier-guard"
+  gem "pry"
 end
 
 group :development do
