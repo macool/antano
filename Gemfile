@@ -52,6 +52,10 @@ gem "foreman"
 gem "dotenv"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
+gem "decent_exposure"
+gem "carrierwave"
+gem "cloudinary"
+gem "simple_form"
 
 group :test, :development do
   gem "rspec-rails"

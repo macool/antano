@@ -1,6 +1,8 @@
 Antano::Application.routes.draw do
   root "home#index"
 
+  get "admin", to: "admin#index"
+
   match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
 
   # Example of regular route:
@@ -46,9 +48,7 @@ Antano::Application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  namespace :admin do
+    resources :photos
+  end
 end

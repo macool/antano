@@ -1,0 +1,13 @@
+h2 = "#{photo.new_record? ? "New" : "Edit"} photo"
+
+= simple_form_for [:admin, photo] do |f|
+  .form-group = f.input :title, input_html: { class: "form-control" }
+  = f.hidden_field :image_cache
+  .form-group = f.input :image
+  - if f.object.image?
+    = image_tag f.object.image_url(:thumb)
+  .form-group = f.input :description, input_html: { class: "form-control" }
+  - unless photo.new_record?
+    = link_to "Delete", admin_photo_path(photo), class: "btn btn-danger", method: :delete, data: { confirm: "you sure?"}
+  = link_to "Back", admin_photos_path, class: "btn btn-link"
+  = f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submitting" }

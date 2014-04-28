@@ -1,0 +1,7 @@
+.col-xs-4
+  .thumbnail
+    = image_tag photo.image_url(:thumb)
+    .caption
+      h3 = photo.title
+      p = photo.description
+      = link_to "", edit_admin_photo_path(photo), class: "glyphicon glyphicon-edit"

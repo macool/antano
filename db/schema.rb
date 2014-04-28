@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428013307) do
+ActiveRecord::Schema.define(version: 20140428023757) do
+
+  create_table "photos", force: true do |t|
+    t.string   "title",                   null: false
+    t.string   "image"
+    t.string   "description"
+    t.integer  "position",    default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["position"], name: "index_photos_on_position", using: :btree
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id",      null: false
