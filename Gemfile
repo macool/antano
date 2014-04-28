@@ -46,7 +46,7 @@ gem "puma"
 # Use debugger
 # gem "debugger", group: [:development, :test]
 
-gem "slim"
+gem "slim-rails"
 gem "kaminari"
 gem "foreman"
 gem "dotenv"
