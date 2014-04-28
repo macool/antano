@@ -48,6 +48,8 @@ gem "puma"
 
 gem "slim"
 gem "kaminari"
+gem "foreman"
+gem "dotenv"
 
 group :test, :development do
   gem "rspec-rails"
