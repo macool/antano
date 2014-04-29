@@ -59,6 +59,7 @@ gem "carrierwave"
 gem "cloudinary"
 gem "simple_form"
 gem "twitter", "4.8.0"
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 group :test, :development do
   gem "rspec-rails"
