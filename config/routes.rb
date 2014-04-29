@@ -52,6 +52,7 @@ Antano::Application.routes.draw do
     resources :photos do
       member do
         post :allow
+        post :share
       end
     end
   end

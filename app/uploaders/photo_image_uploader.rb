@@ -38,6 +38,14 @@ class PhotoImageUploader < CarrierWave::Uploader::Base
     resize_to_fit(200, 200)
   end
 
+  version :twitter do
+    resize_to_fit(600, 400)
+  end
+
+  version :big do
+    resize_to_fit(1200, 800)
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

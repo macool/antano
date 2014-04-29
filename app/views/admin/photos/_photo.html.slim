@@ -1,13 +1,9 @@
 .col-xs-4 id="photo-#{photo.id}"
   .thumbnail
-    = image_tag photo.image_url(:thumb)
-    .caption
-      h3 = photo.title
-      p = photo.description
-      - if photo.tweeted?
-        span.label.label-primary tweeted
-      - elsif photo.allowed?
-        span.label.label-success allowed
-      - else
-        = link_to "not allowed", allow_admin_photo_path(photo), class: "label label-default", method: :post, remote: true
-      = link_to "", edit_admin_photo_path(photo), class: "glyphicon glyphicon-edit"
+    = link_to [:admin, photo] do
+      = image_tag photo.image_url(:thumb)
+      .caption
+        h3 = photo.title
+    = photo.admin_status
+    - if next_photo == photo
+      span.label.label-primary next photo

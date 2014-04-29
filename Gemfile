@@ -52,7 +52,9 @@ gem "foreman"
 gem "dotenv"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
+gem "draper"
 gem "decent_exposure"
+gem "decent_decoration"
 gem "carrierwave"
 gem "cloudinary"
 gem "simple_form"
@@ -64,7 +66,7 @@ group :test, :development do
   gem "capybara"
   gem "guard-rspec"
   gem "terminal-notifier-guard"
-  gem "pry"
+  gem "pry-rails"
 end
 
 group :development do
