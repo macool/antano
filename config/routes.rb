@@ -5,6 +5,8 @@ Antano::Application.routes.draw do
 
   match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
 
+  resources :photos, path: "p", only: :show
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

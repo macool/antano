@@ -1,6 +1,11 @@
+# encoding: utf-8
 class PhotoDecorator < ApplicationDecorator
   def edit_button
     h.link_to "", h.edit_admin_photo_path(self), class: "glyphicon glyphicon-edit btn btn-xs btn-link"
+  end
+
+  def published_at
+    "Publicada el " + I18n.l(Time.parse(tweet.attrs[:created_at]).to_date, format: :long) if tweet
   end
 
   def share_button
@@ -13,6 +18,14 @@ class PhotoDecorator < ApplicationDecorator
 
   def admin_status
     edit_button + tweet_status + position
+  end
+
+  def description_str
+    if description.blank?
+      "No tenemos información acerca de esta imagen"
+    else
+      description
+    end
   end
 
   def tweet_status

@@ -1,0 +1,5 @@
+.show-photo
+  = image_tag photo.image_url(:twitter)
+  h3 = photo.title
+  = photo.description_str
+  .footnote.lighter = photo.published_at

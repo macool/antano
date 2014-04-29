@@ -11,5 +11,6 @@ html
     = csrf_meta_tags
   body
     #main
-      h1 #LoxaDeAntaño
+      = link_to root_path do
+        h1 #LoxaDeAntaño
       = yield

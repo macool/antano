@@ -1,0 +1,3 @@
+.col-xs-6.col-md-4 id="photo-#{photo.id}"
+  = link_to photo, class: "photo-thumbnail" do
+    = image_tag photo.image_url(:thumb)
