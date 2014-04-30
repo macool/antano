@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
     private
 
     def tweet_text
-      "#LoxaDeAntaño #{image_url(:twitter)} #{ENV["HOST_URL"]}"
+      "#LoxaDeAntaño #{image_url(:medium)} #{ENV["HOST_URL"]}"
     end
   end
 end

@@ -35,11 +35,11 @@ class PhotoImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    resize_to_fit(200, 200)
+    resize_to_fill(250, 175)
   end
 
-  version :twitter do
-    resize_to_fit(600, 400)
+  version :medium do
+    resize_to_fill(500, 350)
   end
 
   version :big do

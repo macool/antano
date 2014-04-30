@@ -1,6 +1,6 @@
 = breadcrumb ["Admin", admin_path], ["Photos", admin_photos_path], photo.title
 
-= image_tag photo.image_url(:twitter)
+= image_tag photo.image_url(:medium)
 .float-right = photo.share_button
 h2 = photo.title
 .description = photo.description
