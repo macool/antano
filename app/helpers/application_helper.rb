@@ -11,6 +11,11 @@ module ApplicationHelper
     end
   end
 
+  def disqus_comments(object)
+    disqus_identifier = "#{object.class.name.underscore}/#{object.id}"
+    content_tag(:div, nil, id: "disqus_thread") + javascript_tag("disqusHelper.load('#{disqus_identifier}');")
+  end
+
   def twitter_follow_button
     html = <<-BUTTON
     <a href="https://twitter.com/cuxibamba" class="twitter-follow-button" data-show-count="false" data-lang="es" data-dnt="true">Seguir a @cuxibamba</a>
