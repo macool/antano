@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 # relationships
   has_one :profile
-  
+
 # validations
   validates :nombres, presence: true
 end

@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
   include Omniauthable
-  
+  include Fetchable
+
 # relationships
   belongs_to :user
 
