@@ -1,6 +1,7 @@
 .photo-thumbnails
   text-align: center
   .photo-thumbnail
+    display: inline-block
     float: left
     margin: 0
     padding: 5px
@@ -33,3 +34,8 @@
     float: right
   #published-tweet
     margin: 1em 0
+
+@media (max-width: 750px)
+  .photo-thumbnails .photo-thumbnail
+    float: none
+    margin: 0.2em 0
