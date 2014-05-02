@@ -1,0 +1,4 @@
+- if photo.tweet.present?
+  #published-tweet
+  = javascript_tag do
+    | window.tweetsHelper.publishedTweet("#{photo.tweet.attrs[:id]}");

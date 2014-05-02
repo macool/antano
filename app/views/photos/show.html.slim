@@ -1,6 +1,7 @@
 .show-photo
   = image_tag photo.image_url(:large)
+  = render "like_button"
   h3 = photo.title
   = photo.description_str
-  .footnote.lighter = photo.published_at
+  = render "published_tweet"
   = disqus_comments(photo)

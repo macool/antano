@@ -1,0 +1,8 @@
+#cuxibamba.row.user-public-profile
+  = link_to "http://twitter.com/cuxibamba", target: "_blank" do
+    .image.col-xs-2.col-sm-1
+      = image_tag cuxibamba.imagen_url
+    .col-xs-10.col-sm-11
+      h3 = cuxibamba.nombres
+      = render "social_buttons"
+    .col-xs-4
