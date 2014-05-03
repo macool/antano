@@ -258,7 +258,6 @@ GEM
       railties (>= 3.0, < 4.2)
       slim (~> 2.0)
     slop (3.5.0)
-    spring (1.1.2)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -330,7 +329,6 @@ DEPENDENCIES
   simple_form
   skylight
   slim-rails
-  spring
   terminal-notifier-guard
   turbolinks
   twitter (= 4.8.0)
