@@ -1,5 +1,6 @@
 .show-photo
   = image_tag photo.image_url(:large)
+  = render "siblings_buttons"
   .row
     .col-xs-11
       h3 = photo.title

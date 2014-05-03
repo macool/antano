@@ -1,5 +1,7 @@
 class Photo < ActiveRecord::Base
   include Tweetable
+  include Sequence
+
   enum status: [:pending, :ready, :publishing, :published]
 
 # validations

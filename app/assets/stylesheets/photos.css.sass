@@ -29,6 +29,9 @@
 
 .show-photo
   padding: 1em 0.1em
+  position: relative
+  .image
+    text-align: center
   img
     display: block
     margin: auto
@@ -42,6 +45,18 @@
     float: right
   #published-tweet
     margin: 1em 0
+  .siblings_buttons
+    a
+      color: #333
+      font-size: 35px
+      position: absolute
+      top: 7em
+      &:hover
+        text-decoration: none
+    .glyphicon-chevron-left
+      left: -45px
+    .glyphicon-chevron-right
+      right: -45px
 
 @media (max-width: 750px)
   .photo-thumbnails .photo-thumbnail
