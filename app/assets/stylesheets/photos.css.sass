@@ -8,6 +8,9 @@
 
 .photo-thumbnails
   text-align: center
+  &.hovered
+    img
+      opacity: 0.7
   .photo-thumbnail
     display: inline-block
     float: left
@@ -20,6 +23,7 @@
     &:hover img
       box-shadow: 0 0 15px rgba(0,0,0,0.5)
       z-index: 10
+      opacity: 1
     &.medium
       max-width: 500px
       max-height: 350px
