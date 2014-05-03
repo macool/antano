@@ -22,10 +22,10 @@ class PhotoDecorator < ApplicationDecorator
 
   def description_str
     if description.blank?
-      "No tenemos información acerca de esta imagen"
+      "No tenemos información acerca de esta imagen. ¿Sabes algo? " + h.link_to("Háznoslo saber", h.about_path(anchor: "contacto"))
     else
       description
-    end
+    end.html_safe
   end
 
   def tweet_status

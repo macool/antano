@@ -1,5 +1,5 @@
 .siblings_buttons
   - if photo.has_previous?
-    = link_to "", photo.previous_record, class: "glyphicon glyphicon-chevron-left"
+    = link_to "", photo.previous_record, class: "glyphicon glyphicon-chevron-left hidden-xs"
   - if photo.has_next?
-    = link_to "", photo.next_record, class: "glyphicon glyphicon-chevron-right"
+    = link_to "", photo.next_record, class: "glyphicon glyphicon-chevron-right hidden-xs"
