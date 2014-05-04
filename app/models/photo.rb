@@ -31,6 +31,6 @@ class Photo < ActiveRecord::Base
 
 # class methods
   def self.next_photo
-    sorted.where(status: statuses[:ready]).first || raise(NoMorePhotosAvailableError)
+    sorted.where(status: statuses[:ready]).first
   end
 end
