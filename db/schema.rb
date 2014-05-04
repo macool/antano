@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429191406) do
+ActiveRecord::Schema.define(version: 20140503212853) do
 
   create_table "photos", force: true do |t|
     t.string   "title",                   null: false
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20140429191406) do
     t.integer  "position",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "tweet"
     t.integer  "status",      default: 0
   end
 
@@ -47,6 +46,17 @@ ActiveRecord::Schema.define(version: 20140429191406) do
 
   add_index "profiles", ["uid", "provider"], name: "index_profiles_on_uid_and_provider", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "shares", force: true do |t|
+    t.string   "provider",   null: false
+    t.integer  "photo_id",   null: false
+    t.text     "obj",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["provider", "photo_id"], name: "index_shares_on_provider_and_photo_id", using: :btree
+  add_index "shares", ["provider"], name: "index_shares_on_provider", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nombres",                    null: false

@@ -42,6 +42,10 @@ class PhotoImageUploader < CarrierWave::Uploader::Base
     resize_to_fill(500, 350)
   end
 
+  version :public do
+    resize_to_fit(400, 400)
+  end
+
   version :large do
     resize_to_fit(800, 600)
   end

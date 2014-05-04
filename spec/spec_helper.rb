@@ -39,6 +39,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 
+  # clean images uploaded to cloudinary
   config.after(:suite) do
     CleanupCloudinary.clean
   end

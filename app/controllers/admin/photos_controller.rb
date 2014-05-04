@@ -4,7 +4,7 @@ module Admin
     expose_decorated(:photos) { Photo.sorted }
     expose_decorated(:photo, attributes: :photo_params)
 
-    before_filter :find_photo, only: [:allow, :share]
+    before_filter :find_photo, only: [:allow, :publish]
 
     def create
       if photo.save
@@ -19,8 +19,8 @@ module Admin
       photo.update status: photo.pending? ? :ready : :pending
     end
 
-    def share
-      photo.tweet!
+    def publish
+      photo.publish!
       redirect_to action: :show, id: params[:id]
     end
 

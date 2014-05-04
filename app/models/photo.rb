@@ -1,8 +1,11 @@
 class Photo < ActiveRecord::Base
-  include Tweetable
   include Sequence
+  include Shareable
 
   enum status: [:pending, :ready, :publishing, :published]
+
+# relationships
+  has_many :shares
 
 # validations
   validates :title, presence: true
@@ -16,9 +19,6 @@ class Photo < ActiveRecord::Base
 
 # callbacks
   before_create :set_position
-
-# serializations
-  serialize :tweet
 
 # methods
   def set_position

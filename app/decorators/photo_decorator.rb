@@ -9,7 +9,7 @@ class PhotoDecorator < ApplicationDecorator
   end
 
   def share_button
-    h.link_to("share", h.share_admin_photo_path(self), class: "btn btn-success", method: :post, remote: true, data: {confirm: "Send to twitter? You can not undo this"}) if ready?
+    h.link_to("publish", h.publish_admin_photo_path(self), class: "btn btn-success", method: :post, data: {confirm: "Sure you want to publish this pic? You can not undo this"}) if ready?
   end
 
   def position

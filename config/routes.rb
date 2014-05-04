@@ -12,7 +12,7 @@ Antano::Application.routes.draw do
     resources :photos do
       member do
         post :allow
-        post :share
+        post :publish
       end
     end
   end

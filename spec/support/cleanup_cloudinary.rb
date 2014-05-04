@@ -1,3 +1,4 @@
+# clean images uploaded to cloudinary
 class CleanupCloudinary
   @@public_ids = []
 
