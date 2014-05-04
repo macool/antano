@@ -5,6 +5,10 @@ class Profile < ActiveRecord::Base
 # relationships
   belongs_to :user
 
+# serializations
+  serialize :urls
+  serialize :raw_info
+
 # validations
   validates :user_id, presence: true
   validates :uid, presence: true, uniqueness: true
