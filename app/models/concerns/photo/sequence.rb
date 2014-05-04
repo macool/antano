@@ -1,19 +1,21 @@
 class Photo < ActiveRecord::Base
   module Sequence
-    def has_previous?
-      !!previous_record
+    def next_record_id
+      @next_record_id ||= next_records.limit(1).pluck(:id).first
     end
 
-    def has_next?
-      !!next_record
+    def previous_record_id
+      @previous_record_id ||= previous_records.limit(1).pluck(:id).last
     end
 
-    def previous_record
-      @previous_record ||= self.class.sorted.published.where("id < :id", id: id).last
+    private
+
+    def next_records
+      self.class.sorted.published.where("id > :id", id: id)
     end
 
-    def next_record
-      @next_record ||= self.class.sorted.published.where("id > :id", id: id).first
+    def previous_records
+      self.class.sorted.published.where("id < :id", id: id)
     end
   end
 end
