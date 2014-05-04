@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     aws_cf_signer (0.1.2)
     better_errors (1.1.0)
@@ -126,6 +127,10 @@ GEM
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.9.0)
+      addressable
+      faraday
+      multi_json
     listen (2.7.2)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -315,6 +320,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  koala
   meta_request
   mysql2
   omniauth-facebook
