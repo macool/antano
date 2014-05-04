@@ -1,0 +1,17 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.1
+env:
+  - SECRET_BASE=825e5f04e6feeaac447bd35cab5f CLOUDINARY_URL=cloudinary://453129766468554:jTjgK4BQvrVABfd5gfpyPeD06bI@dknagnx7s
+bundler_args: --without development
+services:
+  - postgresql
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database antano_test;' -U postgres
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - bundle exec rspec spec
+notifications:
+  email: false
