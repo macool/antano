@@ -6,7 +6,7 @@ twitter_options = {
 }
 
 facebook_options = {
-  scope: "basic_info,email,publish_stream"
+  scope: "public_profile,user_friends,email,publish_stream,offline_access,manage_pages"
 }
 
 Rails.application.config.middleware.use OmniAuth::Builder do
