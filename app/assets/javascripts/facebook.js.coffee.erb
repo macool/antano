@@ -32,7 +32,7 @@ loadFacebookSDK = ->
 
 initializeFacebookSDK = ->
   FB.init
-    appId     : "287997354701420"
+    appId     : '<%= ENV["FACEBOOK_APP_ID"] %>'
     version   : 2
     status    : true
     cookie    : true
