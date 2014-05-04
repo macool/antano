@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.1
+  - 2.1.1
 env:
   - SECRET_BASE=825e5f04e6feeaac447bd35cab5f CLOUDINARY_URL=cloudinary://453129766468554:jTjgK4BQvrVABfd5gfpyPeD06bI@dknagnx7s
 bundler_args: --without development
