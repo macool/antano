@@ -2,6 +2,8 @@ class Photo < ActiveRecord::Base
   include Sequence
   include Shareable
 
+  class NoMorePhotosAvailableError < StandardError; end
+
   enum status: [:pending, :ready, :publishing, :published]
 
 # relationships
@@ -29,6 +31,6 @@ class Photo < ActiveRecord::Base
 
 # class methods
   def self.next_photo
-    sorted.where(status: statuses[:ready]).first
+    sorted.where(status: statuses[:ready]).first || raise(NoMorePhotosAvailableError)
   end
 end
