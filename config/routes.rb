@@ -5,6 +5,8 @@ Antano::Application.routes.draw do
   get "acerca", to: "home#about", as: :about
 
   match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
+  get "login", to: "sessions#index", as: :login
+  get "logout", to: "sessions#destroy", as: :logout
 
   resources :photos, path: "p", only: :show
 
