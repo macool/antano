@@ -2,10 +2,9 @@
   = image_tag photo.image_url(:large)
   = render "siblings_buttons"
   .row
-    .col-xs-12.col-sm-11
+    .col-xs-12.col-sm-9
       h3 = photo.title
       = photo.description_str
-    .col-xs-4.col-sm-1
-      = render "like_button"
-  = render "published_tweet"
+    .col-xs-12.col-sm-3
+      = render "share_buttons"
   = disqus_comments(photo)

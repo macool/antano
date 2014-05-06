@@ -29,11 +29,11 @@ class Photo < ActiveRecord::Base
       shares.where(provider: "facebook").first.try(:obj)
     end
 
-    private
-
     def permalink
       "#{ENV["HOST_URL"]}/p/#{id}"
     end
+
+    private
 
     def publish_on_facebook
       raise AlreadyPostedToFBError if published_fb_post.present?

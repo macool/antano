@@ -1,9 +1,17 @@
 window.tweetsHelper =
-  publishedTweet: (id) ->
+  shareButton: (url) ->
     if twttr.widgets
-      twttr.widgets.createTweet id, document.getElementById("published-tweet"), {}, align: "center"
+      options = {
+        hashtags: "LoxaDeAntaño",
+        lang: "es",
+        related: "cuxibamba",
+        via: "cuxibamba",
+        count: "vertical",
+        text: ""
+      }
+      twttr.widgets.createShareButton url, document.getElementById("tweet-button"), {}, options
     else
       # wait until twttr is loaded
       setTimeout ->
-        tweetsHelper.publishedTweet(id)
+        tweetsHelper.shareButton(url)
       , 500
