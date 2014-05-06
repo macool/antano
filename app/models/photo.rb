@@ -29,6 +29,10 @@ class Photo < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "#{id} - #{title}"
+  end
+
 # class methods
   def self.next_photo
     sorted.where(status: statuses[:ready]).first

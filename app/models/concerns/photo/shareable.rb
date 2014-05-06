@@ -18,7 +18,15 @@ class Photo < ActiveRecord::Base
     end
 
     def publish_async!
+      logger.info "[Photo::Shareable] publish async photo #{self}"
       PublishPhotoJob.new.async.perform(id)
+      update! status: :publishing
+    end
+
+    def publish_in(seconds)
+      logger.info "[Photo::Shareable] will publish photo in #{seconds} seconds #{self}"
+      PublishPhotoJob.new.async.later(seconds, id)
+      update! status: :publishing
     end
 
     def published_tweet
@@ -42,6 +50,7 @@ class Photo < ActiveRecord::Base
         link: permalink,
         place: LOJA_FB_PAGE_ID
       }
+      logger.info "[Photo::Shareable] attempt to post to facebook #{self}"
       Antano.facebook_graph.put_connections(CUXIBAMBA_FB_PAGE_ID, "feed", options)
     end
 
@@ -54,6 +63,7 @@ class Photo < ActiveRecord::Base
         lat: -3.996784,
         long: -79.201995
       }
+      logger.info "[Photo::Shareable] attempt to post to twitter #{self}"
       Antano.twitter_client.update_with_media text, media, options
     end
   end
