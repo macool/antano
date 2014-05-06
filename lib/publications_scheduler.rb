@@ -19,6 +19,6 @@ class PublicationsScheduler
   end
 
   def hour
-    @hour ||= Time.now.hour
+    @hour ||= Time.zone.now.hour
   end
 end
