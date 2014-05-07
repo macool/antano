@@ -1,5 +1,14 @@
 class PublicationsScheduler
   def run!
+    check_for_failed_publications!
+    schedule_publish_new_photos!
+  end
+
+  def check_for_failed_publications!
+    raise Photo::DidNotFinishPublishingError if Photo.exists?(status: Photo.statuses[:publishing])
+  end
+
+  def schedule_publish_new_photos!
     0.upto(2).each do |i|
       if photo = Photo.next_photo
         number_of_hours = hours[i] - hour

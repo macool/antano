@@ -3,6 +3,7 @@ class Photo < ActiveRecord::Base
   include Shareable
 
   class NoMorePhotosAvailableError < StandardError; end
+  class DidNotFinishPublishingError < StandardError; end
 
   enum status: [:pending, :ready, :publishing, :published]
 
