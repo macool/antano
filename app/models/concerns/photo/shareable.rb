@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
   module Shareable
     extend ActiveSupport::Concern
 
+    include ActionView::Helpers::TextHelper
+
     CUXIBAMBA_FB_PAGE_ID = 698505323546428
     LOJA_FB_PAGE_ID = 107623235927530
 
@@ -46,7 +48,7 @@ class Photo < ActiveRecord::Base
     def publish_on_facebook
       raise AlreadyPostedToFBError if published_fb_post.present?
       options = {
-        message: "#LoxaDeAntaño #{ENV["HOST_URL"]}",
+        message: "#{title} #LoxaDeAntaño #{ENV["HOST_URL"]}",
         link: permalink,
         place: LOJA_FB_PAGE_ID
       }
@@ -54,9 +56,13 @@ class Photo < ActiveRecord::Base
       Antano.facebook_graph.put_connections(CUXIBAMBA_FB_PAGE_ID, "feed", options)
     end
 
+    def truncated_title
+      truncate(title, length: 97)
+    end
+
     def publish_on_twitter
       raise AlreadyTweetedError if published_tweet.present?
-      text = "#LoxaDeAntaño #{permalink}"
+      text = "#{truncated_title} #LoxaDeAntaño #{permalink}"
       media = open image.send(:public).url
       options = {
         possibly_sensitive: false,
