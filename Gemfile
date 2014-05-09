@@ -62,6 +62,7 @@ gem "twitter", "4.8.0"
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem "sucker_punch"
 gem "koala"
+gem "newrelic_rpm"
 
 group :test, :development do
   gem "rspec-rails"
