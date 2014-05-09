@@ -53,7 +53,7 @@ class Photo < ActiveRecord::Base
         place: LOJA_FB_PAGE_ID
       }
       logger.info "[Photo::Shareable] attempt to post to facebook #{self}"
-      Antano.facebook_graph.get_object "/", ids: options[:link] # refresh facebook cache to avoid 404s
+      # Antano.facebook_graph.get_object "/", ids: options[:link] # refresh facebook cache to avoid 404s
       Antano.facebook_graph.put_connections(CUXIBAMBA_FB_PAGE_ID, "feed", options)
     end
 
