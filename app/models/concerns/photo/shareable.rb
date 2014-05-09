@@ -21,8 +21,8 @@ class Photo < ActiveRecord::Base
 
     def publish_async!
       logger.info "[Photo::Shareable] publish async photo #{self}"
-      PublishPhotoJob.new.async.perform(id)
       update! status: :publishing
+      PublishPhotoJob.new.async.perform(id)
     end
 
     def publish_in(seconds)
