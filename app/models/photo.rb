@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
 
 # validations
   validates :title, presence: true
-  validates :image, presence: true
+  validates :image, presence: true, on: :create
 
 # uploaders
   mount_uploader :image, PhotoImageUploader
