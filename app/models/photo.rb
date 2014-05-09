@@ -19,6 +19,7 @@ class Photo < ActiveRecord::Base
 
 # scopes
   scope :sorted, ->{ order(:position, :id) }
+  scope :visible, -> { where("status >= ?", statuses[:publishing])}
 
 # callbacks
   before_create :set_position

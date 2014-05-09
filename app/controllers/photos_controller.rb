@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  expose_decorated(:photos) { Photo.sorted.published }
+  expose_decorated(:photos) { Photo.sorted.visible }
   expose_decorated(:photo)
 
   expose(:og_url) { photo.send(:permalink) }
