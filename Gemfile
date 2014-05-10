@@ -63,6 +63,7 @@ gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem "sucker_punch"
 gem "koala"
 gem "newrelic_rpm"
+gem "github-markdown"
 
 group :test, :development do
   gem "rspec-rails"

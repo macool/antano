@@ -1,6 +1,8 @@
 = simple_form_for [:admin, photo] do |f|
   .form-group = f.input :title, input_html: { class: "form-control" }
-  .form-group = f.input :description, input_html: { class: "form-control" }
+  .form-group = f.input :description,
+                        input_html: { class: "form-control" },
+                        hint: "Supports <a href='https://help.github.com/articles/github-flavored-markdown' target='_blank'>Github Flavored Markdown</a>".html_safe
   = f.hidden_field :image_cache
   .form-group = f.input :image
   - if f.object.image?

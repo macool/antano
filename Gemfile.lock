@@ -103,6 +103,7 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
+    github-markdown (0.6.5)
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -315,6 +316,7 @@ DEPENDENCIES
   draper
   factory_girl_rails
   foreman
+  github-markdown
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
