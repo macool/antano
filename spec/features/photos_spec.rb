@@ -28,4 +28,15 @@ describe "photos" do
     it { expect(page).to have_content(photo.title) }
     it { expect(page).to have_content(photo.description) }
   end
+
+  describe "right-left buttons" do
+    let!(:other_photo) { create :photo, :published }
+
+    before {
+      visit photo_path(photo)
+      find(".glyphicon-chevron-right").click
+    }
+
+    it { expect(current_path).to eq(photo_path(other_photo)) }
+  end
 end
