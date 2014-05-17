@@ -34,7 +34,7 @@ describe "photos" do
 
     before {
       visit photo_path(photo)
-      find(".glyphicon-chevron-right").click
+      find(".glyphicon-chevron-left").click
     }
 
     it { expect(current_path).to eq(photo_path(other_photo)) }
