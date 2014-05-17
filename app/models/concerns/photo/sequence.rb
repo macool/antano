@@ -9,11 +9,11 @@ class Photo < ActiveRecord::Base
     end
 
     def previous_record
-      @previous_record ||= self.class.sorted.published.where("id < :id", id: id).last
+      @previous_record ||= self.class.sorted.published.where("position > :position", position: position).last
     end
 
     def next_record
-      @next_record ||= self.class.sorted.published.where("id > :id", id: id).first
+      @next_record ||= self.class.sorted.published.where("position < :position", position: position).first
     end
   end
 end
