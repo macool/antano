@@ -18,7 +18,7 @@ class Photo < ActiveRecord::Base
   mount_uploader :image, PhotoImageUploader
 
 # scopes
-  scope :sorted, ->{ order(:position, :id) }
+  scope :sorted, ->{ order(position: :desc, updated_at: :desc, id: :desc) }
   scope :visible, -> { where("status >= ?", statuses[:publishing])}
 
 # callbacks
