@@ -1,4 +1,4 @@
-= breadcrumb ["Admin", admin_path], ["Photos", admin_photos_path], photo.title
+= add_breadcrumbs photo.title
 
 = image_tag photo.image_url(:large)
 .float-right = photo.share_button

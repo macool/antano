@@ -33,5 +33,10 @@ module Admin
     def find_photo
       self.photo = Photo.find params[:id]
     end
+
+    def set_breadcrumbs
+      super
+      self.current_breadcrumbs << ["Fotos", admin_photos_path]
+    end
   end
 end

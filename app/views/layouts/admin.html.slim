@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta charset="utf8"
+    title #LoxaDeAntaño - Administración
+    meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"
+    meta http-equiv="imagetoolbar" content="no"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    #main
+      = link_to root_path do
+        h1 #LoxaDeAntaño
+      = render "shared/admin_navbar"
+      = yield
+    footer = render "layouts/footer"
