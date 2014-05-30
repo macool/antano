@@ -2,7 +2,8 @@ class ManagementController < ApplicationController
   include ControllerBreadcrumbs
 
   before_action :require_login
-  before_action :confirm_logged_in_is_manager
+  # allow everyone to post as long as he is authenticated
+  # before_action :confirm_logged_in_is_manager
 
   layout "admin"
 
