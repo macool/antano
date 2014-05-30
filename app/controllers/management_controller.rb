@@ -1,4 +1,6 @@
 class ManagementController < ApplicationController
+  include ControllerBreadcrumbs
+
   before_action :require_login
   before_action :confirm_logged_in_is_manager
 
