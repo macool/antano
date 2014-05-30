@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523224814) do
+ActiveRecord::Schema.define(version: 20140530001952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20140523224814) do
 
   add_index "managers", ["provider", "nickname"], name: "index_managers_on_provider_and_nickname", unique: true, using: :btree
 
+  create_table "photo_suggestions", force: true do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "photo_id",    null: false
+    t.string   "title"
+    t.text     "description"
+    t.string   "year"
+    t.string   "place"
+    t.text     "people"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photo_suggestions", ["photo_id"], name: "index_photo_suggestions_on_photo_id", using: :btree
+  add_index "photo_suggestions", ["user_id"], name: "index_photo_suggestions_on_user_id", using: :btree
+
   create_table "photos", force: true do |t|
     t.string   "title",                   null: false
     t.string   "image"
@@ -33,6 +48,9 @@ ActiveRecord::Schema.define(version: 20140523224814) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status",      default: 0
+    t.string   "year"
+    t.string   "place"
+    t.text     "people"
   end
 
   add_index "photos", ["position"], name: "index_photos_on_position", using: :btree

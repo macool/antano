@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
 # relationships
   has_one :profile
+  has_many :photo_suggestions
 
 # validations
   validates :nombres, presence: true
