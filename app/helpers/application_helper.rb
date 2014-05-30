@@ -17,13 +17,19 @@ module ApplicationHelper
     end
   end
 
-  # def add_breadcrumbs(*args)
-  #   content_tag :ol, class: "breadcrumb" do
-  #     breadcrumbs.concat(args).map do |path|
-  #
-  #     end
-  #   end
-  # end
+  def li_navbar(title, href, options={})
+    klass = if current_path.include?(href)
+      "active"
+    end
+    content_tag :li, class: klass do
+      link_to title, href, options
+    end.html_safe
+  end
+
+  def current_path(options = {})
+    options = request.params.symbolize_keys.merge(options)
+    url_for Rails.application.routes.recognize_path(request.path).merge(options)
+  end
 
   def disqus_comments(object)
     disqus_identifier = "#{object.class.name.underscore}/#{object.id}"
