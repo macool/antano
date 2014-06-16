@@ -1,0 +1,16 @@
+= div_for photo_suggestion, class: "row photo-suggestion" do
+  .left.col-sm-2
+    = photo_suggestion.user.decorate.small_avatar
+  .right.col-sm-10
+    .author = photo_suggestion.user.nombres
+    .time-ago
+      | hace&nbsp;
+      = time_ago_in_words photo_suggestion.created_at
+    .title = photo_suggestion.title
+    .description = photo_suggestion.description
+    .year = photo_suggestion.year
+    .place = photo_suggestion.place
+    .people = photo_suggestion.people
+  - if photo_suggestion.user == current_user
+    = link_to edit_management_photo_photo_suggestion_path(photo, photo_suggestion), remote: true, class: "edit-link" do
+      span.glyphicon.glyphicon-edit

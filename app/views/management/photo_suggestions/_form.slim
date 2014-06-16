@@ -1,0 +1,32 @@
+= simple_form_for [:management, photo, photo_suggestion],
+  remote: true,
+  html: { class: "photo-suggestion form" } do |f|
+  .row
+    .left.col-sm-2
+      = decorated_current_user.small_avatar
+    .right.col-sm-10
+      .author = decorated_current_user.nombres
+      .not-shown
+        = f.input :title, label: false,
+                          placeholder: "Título",
+                          input_html: { class: "form-control" }
+      = f.input :description, label: false,
+                              placeholder: "Descripción",
+                              input_html: { class: "form-control" }
+      .not-shown
+        = f.input :year, label: false,
+                         placeholder: "Año",
+                         input_html: { class: "form-control" }
+        = f.input :place, label: false,
+                          placeholder: "Lugar",
+                          input_html: { class: "form-control" }
+        = f.input :people, label: false,
+                           as: :string,
+                           placeholder: "Personas en la foto",
+                           input_html: { class: "form-control" }
+      .actions.with-margin
+        a.photo-suggestion-more-info.btn.btn-link más ▾
+        - unless f.object.new_record?
+          = link_to "Cancelar", "#", class: "btn btn-link cancel-photo-suggestion-editing"
+        = f.submit "Enviar", class: "btn btn-primary",
+                              data: { disable_with: "Enviando.."}

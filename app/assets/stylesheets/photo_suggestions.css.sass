@@ -1,0 +1,39 @@
+.photo-suggestion
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  padding-bottom: 0.5em
+  border-bottom: 1px solid #fafafa
+  position: relative
+  .left
+    padding-right: 0
+  .right
+    padding-left: 0
+  .author
+    font-weight: 500
+    display: inline-block
+  .time-ago
+    display: none
+    font-size: 0.8em
+    color: #777
+    margin-left: 0.5em
+  .edit-link
+    display: none
+    position: absolute
+    right: 0.5em
+    top: 0.5em
+  &:hover
+    .time-ago
+      display: inline-block
+    .edit-link
+      display: block
+  &.form
+    margin-top: 1em
+    .not-shown
+      display: none
+    .photo-suggestion-more-info
+      float: left
+      cursor: pointer
+      &:hover
+        color: #428bca
+    input
+      margin: 2px 0

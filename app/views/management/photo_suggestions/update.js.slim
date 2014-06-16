@@ -1,0 +1,6 @@
+- if photo_suggestion.valid?
+  |
+    $("##{dom_id(photo_suggestion)}").replaceWith("#{j render photo_suggestion}");
+    $("#edit_photo_suggestion_#{photo_suggestion.id}").remove();
+- else
+  | alertify.log("#{photo_suggestion.errors.full_messages.join(", ")}")

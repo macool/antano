@@ -1,0 +1,6 @@
+- if photo_suggestion.valid?
+  |
+    $(".photo-suggestions").append("#{j render photo_suggestion}");
+    $("form#new_photo_suggestion")[0].reset();
+- else
+  | alertify.log("#{photo_suggestion.errors.full_messages.join(", ")}")
