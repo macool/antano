@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require nprogress
+//= require alertify
 //= require_tree .
