@@ -1,0 +1,13 @@
+= add_breadcrumbs ["##{photo.id}", management_photos_path(photo)]
+
+.management-show-photo.row
+  .col-sm-6
+    figure
+      = image_tag photo.image_url(:large)
+      figcaption
+        h3 = photo.title
+        = photo.description
+  .col-sm-6
+    .photo-suggestions = render photo_suggestions
+    h4 Sugerir edición
+    = render "management/photo_suggestions/form"
