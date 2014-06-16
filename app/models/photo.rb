@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
 
 # relationships
   has_many :shares
-  has_many :photo_suggestions
+  has_many :photo_suggestions, ->{ order(id: :asc) }
 
 # validations
   validates :title, presence: true

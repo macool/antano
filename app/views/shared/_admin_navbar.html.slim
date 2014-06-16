@@ -6,11 +6,11 @@
       - for_admin do
         = li_navbar "Fotos", admin_photos_path
         = li_navbar "Usuarios", admin_users_path
-      = li_navbar "Fotos pendientes", management_pending_photos_path
+      = li_navbar "Fotos pendientes", management_photos_path
     ul.nav.navbar-nav.navbar-right
       li.dropdown
         a.dropdown-toggle href="#" data-toggle="dropdown"
-          = decorated_current_user.small_avatar
+          = decorated_current_user.tiny_avatar
           = decorated_current_user.nombres
           b.caret
         ul.dropdown-menu

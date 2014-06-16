@@ -1,5 +1,5 @@
 .col-sm-4.col-xs-6.management-photo
-  = link_to management_pending_photo_path(photo) do
+  = link_to management_photo_path(photo) do
     figure
       .identifier = "##{photo.id}"
       = image_tag photo.image_url(:thumb)
@@ -7,8 +7,8 @@
         .col-xs-9
           .title = photo.title
         .col-xs-3
-          span.badge data-toggle="tooltip" data-placement="right" title="#{photo.photo_suggestions.count} sugerencias"
+          span.badge data-toggle="tooltip" data-placement="right" title="#{photo.photo_suggestions.count} contribuciones"
             = "#{photo.photo_suggestions.count} "
             span.glyphicon.glyphicon-comment
           - if photo.photo_suggestions.count == 0 && photo.description.blank?
-            span.glyphicon.glyphicon-warning-sign data-toggle="tooltip" data-placement="right" title="No tenemos información acerca de esta foto"
+            span.glyphicon.glyphicon-warning-sign data-toggle="tooltip" data-placement="right" title="No hay información acerca de esta foto"

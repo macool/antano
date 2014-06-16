@@ -22,6 +22,8 @@ Antano::Application.routes.draw do
 
   get :management, to: "management#index"
   namespace :management do
-    resources :pending_photos
+    resources :photos do
+      resources :photo_suggestions, only: [:edit, :create, :update]
+    end
   end
 end
